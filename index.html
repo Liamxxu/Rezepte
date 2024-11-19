@@ -12,9 +12,11 @@
 <body>
     <header>
         <h1>Rezeptbuch</h1>
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <button onclick="expandAllDetails()">Alle öffnen</button>
-        <button onclick="collapseAllDetails()">Alle schließen</button>
+        <div class="header-buttons">
+            <button onclick="toggleDarkMode()">Dark Mode umschalten</button>
+            <button onclick="expandAllDetails()">Alle öffnen</button>
+            <button onclick="collapseAllDetails()">Alle schließen</button>
+        </div>
     </header>
     <nav>
         <a href="#" onclick="showSection('rezepte')">Rezepte</a>
@@ -60,15 +62,16 @@
                         <li class="ingredient" data-base-value="1" data-ingredient="Gewürzmischung" data-source="Bauernhof">1x Gewürzmischung  (Bauernhof)</li>
                     </ul>
                 </details>
-                <details id="nudeln-mit-ketchup">
-                    <summary>Nudeln mit Ketchup (2x)</summary>
+                <details id="gurkensalat">
+                    <summary>Gurkensalat (2x)</summary>
                     <div class="input-section">
-                        <label for="nudeln-mit-ketchup-quantity">Menge anpassen: </label>
-                        <input type="number" id="nudeln-mit-ketchup-quantity" value="2" min="2" step="2" onchange="updateQuantities(this.value / 2, 'nudeln-mit-ketchup')">
+                        <label for="gurkensalat-quantity">Menge anpassen: </label>
+                        <input type="number" id="gurkensalat-quantity" value="2" min="2" step="2" onchange="updateQuantities(this.value / 2, 'gurkensalat')">
                     </div>
                     <ul>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Nudeln" data-source="24/7">1x Packung Nudeln  (24/7)</li>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Tüte Ketchup" data-source="24/7">2x Tüte Ketchup  (24/7)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Gurke" data-source="Bauernhof">1x Gurke  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="EL Olivenöl" data-source="24/7">1x EL Olivenöl  (24/7)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Zwiebel" data-source="Bauernhof">1x Zwiebel  (Bauernhof)</li>
                     </ul>
                 </details>
                 <details id="toast-hawaii">
@@ -78,9 +81,9 @@
                         <input type="number" id="toast-hawaii-quantity" value="3" min="3" step="3" onchange="updateQuantities(this.value / 3, 'toast-hawaii')">
                     </div>
                     <ul>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Toastbrot" data-source="24/7">1x Packung Toastbrot (24/7)</li>
-                        <li class="ingredient" data-base-value="3" data-ingredient="Stück Ananas" data-source="Bauernhof">3x Stück Ananas (Bauernhof)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Schmelzkäse" data-source="24/7">1x Schmelzkäse (24/7)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Toastbrot" data-source="24/7">1x Packung Toastbrot  (24/7)</li>
+                        <li class="ingredient" data-base-value="3" data-ingredient="Stück Ananas" data-source="Bauernhof">3x Stück Ananas  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Schmelzkäse" data-source="24/7">1x Schmelzkäse  (24/7)</li>
                     </ul>
                 </details>
                 <details id="salamisandwich">
@@ -90,13 +93,11 @@
                         <input type="number" id="salamisandwich-quantity" value="2" min="2" step="2" onchange="updateQuantities(this.value / 2, 'salamisandwich')">
                     </div>
                     <ul>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Toastbrot" data-source="24/7">1x Packung Toastbrot (24/7)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Salami" data-source="Bauernhof">1x Salami (Bauernhof)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Butter" data-source="24/7">1x Butter (24/7)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Toastbrot" data-source="24/7">1x Packung Toastbrot  (24/7)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Salami" data-source="Bauernhof">1x Salami  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Butter" data-source="24/7">1x Butter  (24/7)</li>
                     </ul>
                 </details>
-            </div>
-            <div>
                 <h3>Süßes</h3>
                 <details id="kaiserschmarrn">
                     <summary>Kaiserschmarrn (3x)</summary>
@@ -111,59 +112,19 @@
                         <li class="ingredient" data-base-value="1" data-ingredient="Vanilleschote" data-source="24/7">1x Vanilleschote  (24/7)</li>
                     </ul>
                 </details>
-                <details id="spekulatius-tiramisu">
-                    <summary>Spekulatius-Tiramisu (2x)</summary>
+                <details id="obstsalat">
+                    <summary>Obstsalat (5x)</summary>
                     <div class="input-section">
-                        <label for="spekulatius-tiramisu-quantity">Menge anpassen: </label>
-                        <input type="number" id="spekulatius-tiramisu-quantity" value="2" min="2" step="2" onchange="updateQuantities(this.value / 2, 'spekulatius-tiramisu')">
+                        <label for="obstsalat-quantity">Menge anpassen: </label>
+                        <input type="number" id="obstsalat-quantity" value="5" min="5" step="5" onchange="updateQuantities(this.value / 5, 'obstsalat')">
                     </div>
                     <ul>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Kaffee" data-source="24/7">1x Kaffee  (24/7)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Zimtstange" data-source="24/7">1x Zimtstange  (24/7)</li>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Packung Zucker" data-source="24/7">2x Packung Zucker  (24/7)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Sahne" data-source="24/7">1x Sahne  (24/7)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Korb Erdbeeren" data-source="Bauernhof">1x Korb Erdbeeren  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="3" data-ingredient="Apfel" data-source="Bauernhof">3x Apfel  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="3" data-ingredient="Banane" data-source="Bauernhof">3x Banane  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="3" data-ingredient="Stück Ananas" data-source="Bauernhof">3x Stück Ananas  (Bauernhof)</li>
                     </ul>
                 </details>
-                <details id="vanillekipferl">
-                    <summary>Vanillekipferl (5x)</summary>
-                    <div class="input-section">
-                        <label for="vanillekipferl-quantity">Menge anpassen: </label>
-                        <input type="number" id="vanillekipferl-quantity" value="5" min="5" step="5" onchange="updateQuantities(this.value / 5, 'vanillekipferl')">
-                    </div>
-                    <ul>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Vanilleschote" data-source="24/7">1x Vanilleschote  (24/7)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Mehl" data-source="24/7">1x Packung Mehl  (24/7)</li>
-                        <li class="ingredient" data-base-value="3" data-ingredient="Packung Zucker" data-source="24/7">3x Packung Zucker  (24/7)</li>
-                    </ul>
-                </details>
-                <details id="weihnachtsstollen">
-                    <summary>Weihnachtsstollen (1x)</summary>
-                    <div class="input-section">
-                        <label for="weihnachtsstollen-quantity">Menge anpassen: </label>
-                        <input type="number" id="weihnachtsstollen-quantity" value="1" min="1" step="1" onchange="updateQuantities(this.value, 'weihnachtsstollen')">
-                    </div>
-                    <ul>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Packung Mehl" data-source="24/7">2x Packung Mehl  (24/7)</li>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Weintrauben Chiliad" data-source="Bauernhof">2x Weintrauben Chiliad  (Bauernhof)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Beutel Mandeln" data-source="Bauernhof">1x Beutel Mandeln  (Bauernhof)</li>
-                        <li class="ingredient" data-base-value="3" data-ingredient="Packung Zucker" data-source="24/7">3x Packung Zucker  (24/7)</li>
-                        <li class="ingredient" data-base-value="3" data-ingredient="Ei" data-source="Bauernhof">3x Ei  (Bauernhof)</li>
-                    </ul>
-                </details>
-                <details id="zimtsterne">
-                    <summary>Zimtsterne (5x)</summary>
-                    <div class="input-section">
-                        <label for="zimtsterne-quantity">Menge anpassen: </label>
-                        <input type="number" id="zimtsterne-quantity" value="5" min="5" step="5" onchange="updateQuantities(this.value / 5, 'zimtsterne')">
-                    </div>
-                    <ul>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Zimtstange" data-source="24/7">1x Zimtstange  (24/7)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Mehl" data-source="24/7">1x Packung Mehl  (24/7)</li>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Packung Zucker" data-source="24/7">2x Packung Zucker  (24/7)</li>
-                    </ul>
-                </details>
-            </div>
-            <div>
                 <h3>Getränke</h3>
                 <details id="geister-bowle">
                     <summary>Geister-Bowle (2x)</summary>
@@ -176,18 +137,6 @@
                         <li class="ingredient" data-base-value="4" data-ingredient="Stück Ananas" data-source="Bauernhof">4x Stück Ananas  (Bauernhof)</li>
                         <li class="ingredient" data-base-value="2" data-ingredient="Packung Zucker" data-source="24/7">2x Packung Zucker  (24/7)</li>
                         <li class="ingredient" data-base-value="1" data-ingredient="Eiswürfel" data-source="24/7">1x Eiswürfel  (24/7)</li>
-                    </ul>
-                </details>
-                <details id="orangensaft">
-                    <summary>Orangensaft (4x)</summary>
-                    <div class="input-section">
-                        <label for="orangensaft-quantity">Menge anpassen: </label>
-                        <input type="number" id="orangensaft-quantity" value="4" min="4" step="4" onchange="updateQuantities(this.value / 4, 'orangensaft')">
-                    </div>
-                    <ul>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Orange" data-source="Bauernhof">2x Orange  (Bauernhof)</li>
-                        <li class="ingredient" data-base-value="2" data-ingredient="Wasser" data-source="24/7">2x Wasser  (24/7)</li>
-                        <li class="ingredient" data-base-value="1" data-ingredient="Packung Zucker" data-source="24/7">1x Packung Zucker  (24/7)</li>
                     </ul>
                 </details>
             </div>
@@ -434,7 +383,3 @@
     <script src="scripts.js"></script>
 </body>
 </html>
-
-function collapseAllDetails() {
-    document.querySelectorAll('details').forEach(item => item.removeAttribute('open'));
-}
