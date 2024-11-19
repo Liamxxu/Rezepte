@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezeptbuch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Rezeptbuch</h1>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button onclick="expandAllDetails()">Alle öffnen</button>
+        <button onclick="collapseAllDetails()">Alle schließen</button>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('rezepte')">Rezepte</a>
+        <a href="#" onclick="showSection('bauernhof')">Bauernhof Produkte</a>
+    </nav>
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Nach Rezepten oder Produkten suchen..." oninput="filterItems()">
+    </div>
+    <div id="welcome">
+        <h2>Willkommen im Rezeptbuch!</h2>
+        <p>Wähle eine Kategorie, um Rezepte zu entdecken oder mehr über unsere Bauernhof Produkte zu erfahren.</p>
+        <button onclick="showSection('rezepte')">Rezepte ansehen</button>
+        <button onclick="showSection('bauernhof')">Bauernhof Produkte ansehen</button>
+    </div>
+    <main style="display: none;">
+        <section id="rezepte" class="recipes" style="display: none;">
+            <h2>Rezepte</h2>
+            <div>
+                <h3>Hauptgerichte</h3>
+                <details id="gefuellter-entenbraten">
+                    <summary>Gefüllter Entenbraten mit Kartoffeln (1x)</summary>
+                    <div class="input-section">
+                        <label for="gefuellter-entenbraten-quantity">Menge anpassen: </label>
+                        <input type="number" id="gefuellter-entenbraten-quantity" value="1" min="1" step="1" onchange="updateQuantities(this.value, 'gefuellter-entenbraten')">
+                    </div>
+                    <ul>
+                        <li class="ingredient" data-base-value="4" data-ingredient="Rohes Entenfleisch" data-source="Bauernhof">4x Rohes Entenfleisch  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="3" data-ingredient="Kartoffel" data-source="Bauernhof">3x Kartoffel  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="1" data-ingredient="Apfel" data-source="Bauernhof">1x Apfel  (Bauernhof)</li>
+                        <li class="ingredient" data-base-value="3" data-ingredient="Gewürzmischung" data-source="Bauernhof">3x Gewürzmischung  (Bauernhof)</li>
+                    </ul>
+                </details>
+                <!-- Füge hier die weiteren Rezepte entsprechend hinzu -->
+            </div>
+            <!-- Weitere Kategorien für Rezepte hier hinzufügen -->
+        </section>
+        <section id="bauernhof" class="farm-products" style="display: none;">
+            <h2>Bauernhof Produkte</h2>
+            <div class="product-categories">
+                <details class="category">
+                    <summary>Fleisch</summary>
+                    <ul>
+                        <li>Büffelfleisch</li>
+                        <li>Entenfleisch</li>
+                        <li>Froschschenkel</li>
+                        <li>Hackfleisch</li>
+                        <li>Hühnerfleisch</li>
+                        <li>Kalbfleisch</li>
+                        <li>Kochschinken</li>
+                        <li>Lammfleisch</li>
+                        <li>Rindfleisch</li>
+                        <li>Rohe Wurst</li>
+                        <li>Salami</li>
+                        <li>Schnecken</li>
+                        <li>Schweinefleisch</li>
+                        <li>Wiener</li>
+                        <li>Wildfleisch</li>
+                    </ul>
+                </details>
+                <!-- Füge hier die weiteren Bauernhof Produkte entsprechend hinzu -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Rezeptbuch. Alle Rechte vorbehalten.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
